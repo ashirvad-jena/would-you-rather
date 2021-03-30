@@ -1,9 +1,25 @@
-function App() {
-	return (
-		<div>
-			<h1>baba</h1>
-		</div>
-	);
+import { Component } from "react";
+import { handleInitialData } from "../actions/shared";
+import { connect } from "react-redux";
+class App extends Component {
+	componentDidMount() {
+		this.props.dispatch(handleInitialData());
+	}
+
+	render() {
+		console.log(this.props.users);
+		return (
+			<div>
+				<h1>baba</h1>
+			</div>
+		);
+	}
 }
 
-export default App;
+const mapStateToProps = ({ users }) => {
+	return {
+		users: Object.keys(users),
+	};
+};
+
+export default connect(mapStateToProps)(App);

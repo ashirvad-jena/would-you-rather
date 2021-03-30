@@ -8,6 +8,7 @@ import middleware from "./middleware";
 import { Provider } from "react-redux";
 
 const store = createStore(reducers, middleware);
+console.log(store.getState());
 
 ReactDOM.render(
 	<Provider store={store}>
